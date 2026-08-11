@@ -543,14 +543,12 @@ export function EndScreen({
   outcome,
   players,
   pair,
-  revealWord,
   mrWhiteWinner,
   onReplay,
 }: {
   outcome: Outcome;
   players: Player[];
   pair: WordPair;
-  revealWord: boolean;
   mrWhiteWinner: Player | null;
   onReplay: () => void;
 }) {
@@ -583,11 +581,7 @@ export function EndScreen({
           </p>
           <p className="text-sm">
             Undercover :{" "}
-            {revealWord ? (
-              <strong className="font-display text-xl text-undercover">{pair.undercover}</strong>
-            ) : (
-              <strong className="font-display text-xl text-undercover">{pair.undercover}</strong>
-            )}
+            <strong className="font-display text-xl text-undercover">{pair.undercover}</strong>
           </p>
           <ul className="mt-4 space-y-1 border-t border-border pt-4 text-sm">
             {players.map((p) => (

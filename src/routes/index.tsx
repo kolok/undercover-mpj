@@ -203,7 +203,6 @@ function Index() {
         outcome={outcome}
         players={[...game.players].sort((a, b) => a.order - b.order)}
         pair={game.pair}
-        revealWord
         mrWhiteWinner={mrWhiteWinner}
         onReplay={() => {
           reset();
