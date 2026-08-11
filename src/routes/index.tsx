@@ -148,12 +148,12 @@ function Index() {
     setPhase("round");
   };
 
-  if (phase === "home" || !game) {
-    return <HomeScreen onStart={() => setPhase("setup")} />;
-  }
-
   if (phase === "setup") {
     return <SetupScreen onPlay={startGame} onBack={() => setPhase("home")} />;
+  }
+
+  if (phase === "home" || !game) {
+    return <HomeScreen onStart={() => setPhase("setup")} />;
   }
 
   if (phase === "name" && active) {
