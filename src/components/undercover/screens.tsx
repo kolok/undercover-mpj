@@ -200,10 +200,10 @@ export function CardTile({
   tone,
 }: {
   label: string;
-  sub?: string;
+  sub?: string | undefined;
   state: "hidden" | "taken" | "out";
-  onClick?: () => void;
-  tone?: Role;
+  onClick?: (() => void) | undefined;
+  tone?: Role | undefined;
 }) {
   const disabled = state !== "hidden" || !onClick;
   return (
