@@ -40,7 +40,8 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-type Phase = "home" | "setup" | "deal" | "name" | "word" | "round" | "vote" | "elim" | "mrwhite" | "end";
+type Phase =
+  "home" | "setup" | "deal" | "name" | "word" | "round" | "vote" | "elim" | "mrwhite" | "end";
 
 function Index() {
   const [phase, setPhase] = useState<Phase>("home");
@@ -83,9 +84,7 @@ function Index() {
     const takenCount = game.players.filter((p) => p.order !== -1).length;
     setGame({
       ...game,
-      players: game.players.map((p) =>
-        p.id === activeId ? { ...p, name, order: takenCount } : p,
-      ),
+      players: game.players.map((p) => (p.id === activeId ? { ...p, name, order: takenCount } : p)),
     });
     setPhase("word");
   };
@@ -212,11 +211,5 @@ function Index() {
     );
   }
 
-  return (
-    <DealScreen
-      players={game.players}
-      onPick={pickCard}
-      onStartRound={startRoundTable}
-    />
-  );
+  return <DealScreen players={game.players} onPick={pickCard} onStartRound={startRoundTable} />;
 }

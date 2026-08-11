@@ -68,13 +68,7 @@ export function maxMrWhite(players: number, undercover: number) {
 
 export function isValidSetup(players: number, undercover: number, mrWhite: number) {
   const civils = players - undercover - mrWhite;
-  return (
-    players >= 3 &&
-    players <= 10 &&
-    undercover >= 1 &&
-    mrWhite >= 0 &&
-    civils > players / 2
-  );
+  return players >= 3 && players <= 10 && undercover >= 1 && mrWhite >= 0 && civils > players / 2;
 }
 
 export type Game = {
@@ -104,11 +98,10 @@ export function createGame(playerCount: number, undercover: number, mrWhite: num
 }
 
 export function pickStarter(players: Player[]): number {
-  const ordered = players
-    .filter((p) => !p.eliminated)
-    .sort((a, b) => a.order - b.order);
+  const ordered = players.filter((p) => !p.eliminated).sort((a, b) => a.order - b.order);
   const eligible = ordered.filter((p) => p.role !== "mrwhite");
-  const chosen = eligible.length > 0 ? eligible[Math.floor(Math.random() * eligible.length)] : ordered[0];
+  const chosen =
+    eligible.length > 0 ? eligible[Math.floor(Math.random() * eligible.length)] : ordered[0];
   return chosen ? chosen.order : 0;
 }
 

@@ -42,8 +42,7 @@ export function HomeScreen({ onStart }: { onStart: () => void }) {
         <div>
           <h1 className="title-xl text-foreground">Undercover</h1>
           <p className="mt-3 text-sm text-muted-foreground">
-            Un seul téléphone, des mots secrets et beaucoup de bluff. De 3 à 10 joueurs, hors
-            ligne.
+            Un seul téléphone, des mots secrets et beaucoup de bluff. De 3 à 10 joueurs, hors ligne.
           </p>
         </div>
         <Button size="lg" className="w-full text-base font-semibold" onClick={onStart}>
