@@ -8,6 +8,8 @@ export const getRouter = () => {
   const router = createRouter({
     routeTree,
     context: { queryClient },
+    // Keep client routing aligned with Vite `base` (GitHub Pages project path).
+    basepath: import.meta.env.BASE_URL.replace(/\/$/, "") || undefined,
     scrollRestoration: true,
     defaultPreloadStaleTime: 0,
   });
